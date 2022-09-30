@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RandJokes</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+ </head>
+ <body>
+
+
+    <div class="container-md">
+        <div class="row">
+            <div class="col-sm"> ACTIVITY</div>
+            <div class="col-sm"> TYPE</div>
+            <div class="col-sm"> PARTICIPANTS</div>
+            <div class="col-sm"> PRICE</div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm"> </div>
+            <div class="col-sm"> </div>
+            <div class="col-sm"> </div>
+            <div class="col-sm"> </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm"><p class = "activity "></p></div>
+            <div class="col-sm"><p class = "type "></p></div>
+            <div class="col-sm"><p class = "participants "></p></div>
+            <div class="col-sm"><p class = "price"></p></div>
+    </div>
+    
+    <script>
+        axios.get ("https://www.boredapi.com/api/activity")
+            .then(response => {
+                randJoke = response.data
+                console.log(randJoke)
+                document.querySelector(".activity").innerHTML = "" + randJoke.activity
+                document.querySelector(".type").innerHTML = "" + randJoke.type
+                document.querySelector(".participants").innerHTML = "" + randJoke.participants
+                document.querySelector(".price").innerHTML = "" + randJoke.price
+            })
+       
+    </script>
+    
+ </body>
+ </html>
